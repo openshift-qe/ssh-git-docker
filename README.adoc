@@ -1,0 +1,21 @@
+= Docker SSH/SSH-git server
+
+You can find here Dockerfiles for building OpenSSH server images + installed git.
+
+== ssh-git-openshift
+
+OpenSSH runs as the `git` user. Suitable for OpenShift non-privileged usage.
+
+== ssh-git-user
+
+OpenSSH runs as the `git` user. Can run in OpenShift only in privileged mode.
+
+== ssh-git-root
+
+OpenSSH run as root. Can run in OpenShift only in privileged mode.
+Advantage is that you can configure multiple users with that image.
+
+== persistance
+
+Not very suitable for persistance yet. Using them for testing presently.
+TODO: modify and add ability to use persistent volumes.
