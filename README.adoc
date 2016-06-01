@@ -1,21 +1,31 @@
 = Docker SSH/SSH-git server
 
-You can find here Dockerfiles for building OpenSSH server images + installed git.
+You can find here Dockerfiles for building OpenSSH server images + installed git. These based on Fedora:latest image.
 
 == ssh-git-openshift
 
-OpenSSH runs as the `git` user. Suitable for OpenShift non-privileged usage.
+OpenSSH runs as the `git` user. Suitable for OpenShift non-privileged usage. A pre-built image can be found on:
+https://hub.docker.com/r/aosqe/ssh-git-server-openshift/
 
 == ssh-git-user
 
-OpenSSH runs as the `git` user. Can run in OpenShift only in privileged mode.
+OpenSSH runs as the `git` user. Can run in OpenShift only in privileged mode. A pre-built image can be found on:
+https://hub.docker.com/r/aosqe/ssh-git-server/ (see git-<timestamp tag>)
 
 == ssh-git-root
 
 OpenSSH run as root. Can run in OpenShift only in privileged mode.
 Advantage is that you can configure multiple users with that image.
 
+A pre-built image can be found on:
+https://hub.docker.com/r/aosqe/ssh-git-server/ (see root-<timestamp tag>)
+
 == persistance
 
 Not very suitable for persistance yet. Using them for testing presently.
 TODO: modify and add ability to use persistent volumes.
+
+== HowTo build, push and run
+
+HowTo style blog about building and running these images along with some OpenShift specific info and tips:
+http://rboci.blogspot.bg/2016/06/creating-docker-images-suitable-for.html
