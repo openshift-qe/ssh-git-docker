@@ -1,13 +1,17 @@
 FROM fedora:latest
 
 RUN dnf -y install openssh-server git
+RUN dnf clean all
 
 # setup openssh
 RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
-RUN sed -i 's/#UsePrivilegeSeparation.*$/UsePrivilegeSeparation no/' /etc/ssh/sshd_config
 RUN sed -i 's|#PidFile.*$|PidFile /home/git/sshd.pid|' /etc/ssh/sshd_config
 RUN sed -i 's/#Port.*$/Port 2022/' /etc/ssh/sshd_config
-# RUN sed -i "s/UsePAM.*/UsePAM yes/g" /etc/ssh/sshd_config
+
+# SSHd 7.4+ (maybe earlier) this is not needed, see
+#  https://lists.mindrot.org/pipermail/openssh-unix-dev/2017-August/036168.html
+# RUN sed -i 's/#UsePrivilegeSeparation.*$/UsePrivilegeSeparation no/' /etc/ssh/sshd_config
+
 RUN mkdir /var/run/sshd
 
 # setup git user
