@@ -13,6 +13,7 @@ RUN sed -i 's/#Port.*$/Port 2022/' /etc/ssh/sshd_config
 # RUN sed -i 's/#UsePrivilegeSeparation.*$/UsePrivilegeSeparation no/' /etc/ssh/sshd_config
 
 RUN mkdir /var/run/sshd
+RUN rm -f /var/run/nologin
 
 # setup git user
 RUN adduser --system -s /bin/bash git

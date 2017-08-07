@@ -5,6 +5,7 @@ RUN dnf -y install openssh-server git
 # setup openssh
 RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd
+RUN rm -f /var/run/nologin
 
 # setup git user
 RUN adduser --system -s /bin/bash git

@@ -12,6 +12,7 @@ RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/s
 
 RUN sed -i 's/#Port.*$/Port 2022/' /etc/ssh/sshd_config
 RUN chmod 775 /var/run
+RUN rm -f /var/run/nologin
 
 # setup git user
 RUN adduser --system -s /bin/bash -u 1234321 -g 0 git # uid to replace later
